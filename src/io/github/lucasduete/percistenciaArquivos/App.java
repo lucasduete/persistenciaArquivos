@@ -18,7 +18,13 @@ public class App {
         try {
             GenericDaoBinario<Pessoa> dao = new GenericDaoBinario<>("Pessoa.bin");
         
-            //dao.salvar(new Pessoa("Lusca", 19));
+            dao.salvar(new Pessoa("Lusca", 19));
+            dao.salvar(new Pessoa("Jose", 27));
+            dao.salvar(new Pessoa("Maria", 27));
+            
+            System.out.println(dao.listar());
+            
+            dao.deletar(new Pessoa("Jose", 27));
             
             System.out.println(dao.listar());
         } catch (IOException ioex) {

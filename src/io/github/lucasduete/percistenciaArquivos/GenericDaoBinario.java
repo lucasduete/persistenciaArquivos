@@ -46,16 +46,29 @@ public class GenericDaoBinario <T> {
         List<T> lista = listar();
         
         if (lista.add(obj)) {
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(arquivo));
-        
-            out.writeObject(lista);
-            out.close();
+            atualizarArquivo(lista);
             return true;
         } else {
             return false;
         }
-        
     }
     
+    public boolean deletar(T obj) throws IOException, ClassNotFoundException {
+        List<T> lista = listar();
+        
+        if(lista.remove(obj)) {
+            atualizarArquivo(lista);
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    private void atualizarArquivo(List<T> lista) throws IOException, ClassNotFoundException {
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(arquivo));
+        
+        out.writeObject(lista);
+        out.close();
+    }
     
 }
