@@ -5,6 +5,7 @@
  */
 package io.github.lucasduete.percistenciaArquivos;
 
+import io.github.lucasduete.percistenciaArquivos.dao.GenericDaoBinario;
 import io.github.lucasduete.percistenciaArquivos.model.Pessoa;
 import java.io.IOException;
 

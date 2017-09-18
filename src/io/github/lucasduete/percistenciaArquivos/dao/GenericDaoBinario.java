@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package io.github.lucasduete.percistenciaArquivos;
+package io.github.lucasduete.percistenciaArquivos.dao;
 
 import java.io.File;
 import java.io.FileInputStream;
