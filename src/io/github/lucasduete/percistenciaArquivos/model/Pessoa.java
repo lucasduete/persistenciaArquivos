@@ -5,11 +5,15 @@
  */
 package io.github.lucasduete.percistenciaArquivos.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author lucasduete
  */
-public class Pessoa {
+
+//QUANDO MARCADO COMO SERIALIZABLE NAO PODE MUDAR POIS O INPUTSTEAM NAO RECONHECERA A CLASSE
+public class Pessoa implements Serializable{
     private String nome;
     private int idade;
 

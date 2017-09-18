@@ -6,23 +6,35 @@
 package io.github.lucasduete.percistenciaArquivos;
 
 import io.github.lucasduete.percistenciaArquivos.model.Pessoa;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 /**
  *
  * @author lucasduete
  */
 public class App {
-    public static void main(String[] args) {
-        try {
-            GenericDaoTexto<Pessoa> dao = new GenericDaoTexto<>("Pessoa.txt");
-            
-            dao.salvar(new Pessoa("Lusca", 19));
-            
-            System.out.println(dao.listar());
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        File f = new File("Pessoa.bin");
+        
+        if (!f.exists())
+            f.createNewFile();
+        
+//        ESCREVER
+//        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(f));
+//        
+//        Pessoa p = new Pessoa("Lusca", 17);
+//        out.writeObject(p);
+//        out.close();
+        
+//        LER
+//        ObjectInputStream in = new ObjectInputStream(new FileInputStream(f));
+//        Pessoa p = (Pessoa) in.readObject();
+//        System.out.println(p);
     }
 }
 
