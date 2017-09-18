@@ -6,6 +6,7 @@
 package io.github.lucasduete.percistenciaArquivos.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *
@@ -42,4 +43,35 @@ public class Pessoa implements Serializable{
     public String toString() {
         return "Pessoa{" + "nome=" + nome + ", idade=" + idade + '}';
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 67 * hash + Objects.hashCode(this.nome);
+        hash = 67 * hash + this.idade;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Pessoa other = (Pessoa) obj;
+        if (this.idade != other.idade) {
+            return false;
+        }
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 }
